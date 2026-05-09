@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero d-flex align-items-center justify-content-center text-center ">
+
+    <div class="hero-content">
+
+        <h1 class="hero-title">
+            Welcome to <span>Sali Beauty Center</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Luxury care for your beauty, wellness, and confidence
+        </p>
+
+        <a href="#" class="btn-hero mt-4">
+        Book Appointment
+        </a>
+
+    </div>
+
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services-section py-5 text-center">
+    <h2 class="section-title mb-5">Our Services</h2>
+
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Hair Styling -->
+            <div class="col-md-4">
+                <div class="service-card hair-card">
+                    <div class="overlay">
+                        <h4>Hair Styling</h4>
+                        <p>Blow dry, coloring, haircut & styling</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facial Care -->
+            <div class="col-md-4">
+                <div class="service-card face-card">
+                    <div class="overlay">
+                        <h4>Facial Care</h4>
+                        <p>Luxury skincare & glowing treatments</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nail Care -->
+            <div class="col-md-4">
+                <div class="service-card nail-card">
+                    <div class="overlay">
+                        <h4>Nail Care</h4>
+                        <p>Manicure, pedicure & gel nails</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EMPLOYEES SECTION -->
+<section class="employees-section text-center py-5">
+
+    <h2 class="section-title mb-5">Our Experts</h2>
+
+    <div class="container">
+        <div class="row g-4">
+
+            {% for employee in employees %}
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="employee-card">
+
+                    {% if employee.image %}
+                        <img src="{{ employee.image.url }}" alt="{{ employee.user.username }}">
+                    {% endif %}
+
+                    <h4>{{ employee.user.username }}</h4>
+                    <p>{{ employee.bio|truncatewords:12 }}</p>
+                    <p>{{ employee.experience_years }} Years Experience</p>
+
+                </div>
+
+            </div>
+            {% comment %} if there there is no expert {% endcomment %}
+            {% empty %}
+            <p>No experts available at the moment.</p>
+            {% comment %} if there there is no expert {% endcomment %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section text-center">
+
+    <div class="container">
+
+        <h2 class="cta-title">
+            Ready To Experience Luxury Beauty Care?
+        </h2>
+
+        <p class="cta-text">
+            Book your appointment today and enjoy premium beauty services
+            with our professional experts.
+        </p>
+
+        <a href="#" class="btn-hero">
+            Book Appointment
+        </a>
+
+    </div>
+
+</section>
+{% endblock %}

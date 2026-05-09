@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="services-section py-5 text-center">
+
+    <h2 class="section-title mb-5">All Our Services</h2>
+
+    <div class="container">
+        <div class="row g-4">
+
+            {% for service in services %}
+
+            <div class="col-md-4">
+
+                <div class="service-card"
+                     style="background-image: url('{{ service.image.url }}');">
+
+                    <div class="overlay">
+
+                        <h4>{{ service.name }}</h4>
+
+                        <p>{{ service.description|truncatewords:12 }}</p>
+
+                        <p><strong>{{ service.price }} MAD</strong></p>
+
+                        <p>{{ service.duration }} min</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

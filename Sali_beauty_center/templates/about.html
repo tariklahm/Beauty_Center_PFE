@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="about-section py-5">
+
+    <div class="container">
+
+        <!-- TITLE -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">About Us</h2>
+        </div>
+
+        <!-- CONTENT ROW -->
+        <div class="row justify-content-center g-5">
+
+        
+
+            <!-- RIGHT: TEXT + LOGO -->
+            <div class="col-md-8 about-content p-4 text-center">
+
+                <!-- LOGO IN THE MIDDLE -->
+                <img src="{% static 'images/sali_logo.svg' %}" alt="Logo" class="about-logo mb-4">
+
+                <h3 class="section-title">Sali Beauty Center</h3>
+
+                    <p class="section-subtitle">
+                        Welcome to Sali Beauty Center, where luxury meets care.
+                        We specialize in Hair, Face, and Nails treatments designed
+                        to enhance your natural beauty and confidence.
+                    </p>
+                    <p class="section-subtitle">
+                        Our team of professionals ensures high-quality service,
+                        comfort, and a premium experience for every client.
+                    </p>
+
+            </div>
+        </div>
+    </div>
+    
+
+</section>
+
+{% endblock %}
