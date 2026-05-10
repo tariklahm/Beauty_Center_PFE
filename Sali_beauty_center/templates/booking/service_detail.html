@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="employees-section py-5 text-center">
+
+    <div class="container">
+
+        <h2 class="section-title mb-3">
+            {{ service.name }}
+        </h2>
+
+        <p class="mb-5">
+            Those are our professional experts
+        </p>
+
+        <div class="row g-4">
+
+            {% for employee in employees %}
+
+            <div class="col-md-4">
+
+                <div class="employee-card">
+
+                    {% if employee.image %}
+                        <img src="{{ employee.image.url }}" alt="">
+                    {% endif %}
+
+                    <h4 class="mt-3">
+                        {{ employee.user.username }}
+                    </h4>
+
+                    <p>
+                        {{ employee.experience_years }} years experience
+                    </p>
+
+                    <p>
+                        {{ employee.bio|truncatewords:12 }}
+                    </p>
+
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <p>No employee available for this service.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+<div class="floating-back" style="right: 20px;">
+        
+    <span >
+    
+        <a  href="{% url 'booking:services' %}">
+                    ⮜
+        <span>Back to Services</span>
+        
+        </a>
+
+    <span >
+</div>
+{% endblock %}

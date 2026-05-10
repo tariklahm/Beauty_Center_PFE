@@ -13,24 +13,24 @@
             {% for service in services %}
 
             <div class="col-md-4">
+                <a href="{% url 'booking:service_detail' service.id %}" class="text-decoration-none">
+                    <div class="service-card"
+                        style="background-image: url('{{ service.image.url }}');">
 
-                <div class="service-card"
-                     style="background-image: url('{{ service.image.url }}');">
+                        <div class="overlay">
 
-                    <div class="overlay">
+                            <h4>{{ service.name }}</h4>
 
-                        <h4>{{ service.name }}</h4>
+                            <p>{{ service.description|truncatewords:12 }}</p>
 
-                        <p>{{ service.description|truncatewords:12 }}</p>
+                            <p><strong>{{ service.price }} MAD</strong></p>
 
-                        <p><strong>{{ service.price }} MAD</strong></p>
+                            <p>{{ service.duration }} min</p>
 
-                        <p>{{ service.duration }} min</p>
+                        </div>
 
                     </div>
-
-                </div>
-
+                </a>
             </div>
 
             {% endfor %}
@@ -39,5 +39,5 @@
     </div>
 
 </section>
-
+{% include "pagination.html" with page=page_obj %}
 {% endblock %}

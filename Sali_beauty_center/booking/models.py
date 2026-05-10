@@ -18,11 +18,7 @@ class Service(models.Model):
     duration = models.IntegerField()
     image = models.ImageField(upload_to='services/', blank=True, null=True)
 
-    category = models.CharField(
-        max_length=20,
-        choices=CATEGORY_CHOICES,
-        default='hair'
-    )
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='hair')
 
     def __str__(self):
         return self.name
