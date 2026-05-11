@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="breadcrumb-container">
+    <a href="{% url 'booking:home' %}">Home</a>
+    <span>›</span>
+    <span>{{ category|title }}</span>
+</div>
 <section class="services-section py-5 text-center">
 
     <h2 class="section-title mb-5">The Category's Services</h2>

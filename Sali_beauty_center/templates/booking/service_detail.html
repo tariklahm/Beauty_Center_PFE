@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="breadcrumb-container">
+    <a href="{% url 'booking:home' %}">Home</a>
+    <span>›</span>
+    <a href="{% url 'booking:services' %}">All Services</a>
+    <span>›</span>
+    <a href="{% url 'booking:category_detail' service.category %}">
+        {{ service.category|title }}
+    </a>
+    <span>›</span>
+    <span>{{ service.name }}</span>
+</div>
 <section class="employees-section py-5 text-center">
 
     <div class="container">
@@ -54,7 +64,7 @@
     </div>
 
 </section>
-<div class="floating-back" style="right: 20px;">
+{% comment %} <div class="floating-back" style="right: 20px;">
         
     <span >
     
@@ -65,5 +75,5 @@
         </a>
 
     <span >
-</div>
+</div> {% endcomment %}
 {% endblock %}

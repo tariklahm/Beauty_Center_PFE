@@ -946,3 +946,53 @@ footer {
 
     transform: translateX(0);
 }
+/* =========================================
+                breadcrumb
+========================================= */
+
+.breadcrumb-container {
+    position: fixed;
+    transform: translateY(-50%);
+    
+    display: flex;
+    flex-direction: line;
+
+    gap: 15px;
+
+    z-index: 1000;
+    margin: 0;
+
+    padding: 10px 12px;
+    text-align: center;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    color: #C6B279;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(198,178,121,0.2);
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+
+.breadcrumb-container a {
+    color: #C6B279;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.breadcrumb-container a:hover {
+    color: #fff;
+}
+
+.breadcrumb-container span {
+    opacity: 0.6;
+}
