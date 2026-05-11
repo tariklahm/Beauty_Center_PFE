@@ -94,7 +94,7 @@ html {
    
     white-space: nowrap;
 
-    font-size: 0.7rem;
+    font-size: 0.9rem;
 
     color: #C6B279;
 
@@ -553,12 +553,14 @@ html {
                 FOOTER
 ========================================= */
 
-.footer {
-    background-color: #0d0d0d;
+footer {
+    background: radial-gradient(circle at top, #1a1a1a, #0d0d0d);
 
     color: #C6B279;
 
-    border-top: 1px solid rgba(198, 178, 121, 0.2);
+    padding: 40px 20px;
+
+    border-top: 1px solid rgba(198,178,121,0.2);
 }
 
 .footer-logo img {
@@ -922,7 +924,7 @@ html {
 
     white-space: nowrap;
 
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 
     color: #C6B279;
 

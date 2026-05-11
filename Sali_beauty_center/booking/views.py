@@ -28,6 +28,7 @@ class ServiceListView(ListView):
     context_object_name = 'services'
     paginate_by = 6
     template_name = 'booking/services.html'
+
 # Service detail
 def service_detail(request, service_id):
     service = get_object_or_404(Service, id=service_id)
@@ -39,6 +40,16 @@ def service_detail(request, service_id):
     }
     return render(request, 'booking/service_detail.html', context)
 
+# Category_detail
+def category_detail(request, category):
+    
+    services = Service.objects.filter(category=category)
+
+    context = {
+        'services': services,
+        'category': category,
+    }
+    return render(request, 'booking/category_detail.html', context)
 # The about page view
 def about(request):
     return render(request, 'about.html')

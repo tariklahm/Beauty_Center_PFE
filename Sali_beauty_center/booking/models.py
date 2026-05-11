@@ -8,7 +8,7 @@ class Service(models.Model):
     CATEGORY_CHOICES = [
         ('hair', 'Hair'),
         ('nails', 'Nails'),
-        ('face', 'Face'),
+        ('facial', 'Face'),
         ('body', 'Body'),
     ]
 

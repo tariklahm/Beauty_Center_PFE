@@ -19,6 +19,7 @@
         Book Appointment
         </a>
 
+
     </div>
 
 </section>
@@ -32,32 +33,39 @@
 
             <!-- Hair Styling -->
             <div class="col-md-4">
+            <a href="{% url 'booking:category_detail' 'hair' %}" class="text-decoration-none">
                 <div class="service-card hair-card">
                     <div class="overlay">
                         <h4>Hair Styling</h4>
                         <p>Blow dry, coloring, haircut & styling</p>
                     </div>
                 </div>
+            </a>
             </div>
 
             <!-- Facial Care -->
             <div class="col-md-4">
+                <a href="{% url 'booking:category_detail' 'face' %}" class="text-decoration-none">
                 <div class="service-card face-card">
                     <div class="overlay">
                         <h4>Facial Care</h4>
                         <p>Luxury skincare & glowing treatments</p>
                     </div>
                 </div>
+                </a>
             </div>
 
             <!-- Nail Care -->
             <div class="col-md-4">
+                <a href="{% url 'booking:category_detail' 'nails' %}" class="text-decoration-none"></a>
                 <div class="service-card nail-card">
                     <div class="overlay">
                         <h4>Nail Care</h4>
                         <p>Manicure, pedicure & gel nails</p>
                     </div>
                 </div>
+                </a>
+
             </div>
 
         </div>
