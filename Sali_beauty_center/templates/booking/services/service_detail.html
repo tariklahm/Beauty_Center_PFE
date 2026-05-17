@@ -1,17 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="breadcrumb-container">
-    <a href="{% url 'booking:home' %}">Home</a>
-    <span>›</span>
-    <a href="{% url 'booking:services' %}">All Services</a>
-    <span>›</span>
-    <a href="{% url 'booking:category_detail' service.category %}">
-        {{ service.category|title }}
-    </a>
-    <span>›</span>
-    <span>{{ service.name }}</span>
-</div>
+{% include 'partials/breadcrumbs.html' with mode="service_flow" show_services=True category=service.category service=service %}
 <section class="employees-section py-5 text-center">
 
     <div class="container">
@@ -29,7 +19,7 @@
             {% for employee in employees %}
 
             <div class="col-md-4">
-
+                <a href="{% url 'users:employee_detail' employee.id service.id %}" class="text-decoration-none">
                 <div class="employee-card">
 
                     {% if employee.image %}
@@ -50,7 +40,7 @@
 
 
                 </div>
-
+                </a>
             </div>
 
             {% empty %}

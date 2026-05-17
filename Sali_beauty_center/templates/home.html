@@ -15,7 +15,7 @@
             Luxury care for your beauty, wellness, and confidence
         </p>
 
-        <a href="#" class="btn-hero mt-4">
+        <a href="{% url 'booking:services_categories' %}" class="btn-hero mt-4">
         Book Appointment
         </a>
 
@@ -57,7 +57,7 @@
 
             <!-- Nail Care -->
             <div class="col-md-4">
-                <a href="{% url 'booking:category_detail' 'nails' %}" class="text-decoration-none"></a>
+                <a href="{% url 'booking:category_detail' 'nails' %}" class="text-decoration-none">
                 <div class="service-card nail-card">
                     <div class="overlay">
                         <h4>Nail Care</h4>
@@ -83,7 +83,12 @@
             {% for employee in employees %}
 
             <div class="col-12 col-md-6 col-lg-3">
-
+            
+                {% if employee.services.all %}
+                {% with employee.services.all|first as service %}
+                    <a href="{% url 'users:employee_detail' employee.id service.id %}" class="text-decoration-none">
+                {% endwith %}
+                {% endif %}
                 <div class="employee-card">
 
                     {% if employee.image %}
@@ -95,7 +100,7 @@
                     <p>{{ employee.experience_years }} Years Experience</p>
 
                 </div>
-
+                </a>
             </div>
             {% comment %} if there there is no expert {% endcomment %}
             {% empty %}

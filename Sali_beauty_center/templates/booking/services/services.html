@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="breadcrumb-container">
-    <a href="{% url 'booking:home' %}">Home</a>
-    <span>›</span>
-    <span>{{ category|title }}</span>
-</div>
+{% include 'partials/breadcrumbs.html' with show_services=False page_title="All Services" %}
 <section class="services-section py-5 text-center">
 
-    <h2 class="section-title mb-5">The Category's Services</h2>
+    <h2 class="section-title mb-5">All Our Services</h2>
 
     <div class="container">
         <div class="row g-4">
@@ -16,7 +13,7 @@
             {% for service in services %}
 
             <div class="col-md-4">
-                    <a href="{% url 'booking:service_detail' service.id %}" class="text-decoration-none">
+                <a href="{% url 'booking:service_detail' service.id %}" class="text-decoration-none">
                     <div class="service-card" style="background-image: url('{{ service.image.url }}');">
 
                         <div class="overlay">
@@ -32,7 +29,7 @@
                         </div>
 
                     </div>
-                    </a>
+                </a>
             </div>
 
             {% endfor %}

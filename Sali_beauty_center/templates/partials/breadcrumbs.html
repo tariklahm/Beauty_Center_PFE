@@ -1,0 +1,29 @@
+<div class="breadcrumb-container">
+
+    <a href="{% url 'booking:home' %}">Home</a>
+
+    {% if show_services %}
+        <span>›</span>
+        <a href="{% url 'booking:services_categories' %}">Categories</a>
+    {% endif %}
+
+    {% if category %}
+        <span>›</span>
+        <a href="{% url 'booking:category_detail' category %}">
+            {{ category|title }}
+        </a>
+    {% endif %}
+
+    {% if service %}
+        <span>›</span>
+        <a href="{% url 'booking:service_detail' service.id %}">
+            {{ service.name }}
+        </a>
+    {% endif %}
+
+    {% if employee %}
+        <span>›</span>
+        <span>{{ employee.user.username }}</span>
+    {% endif %}
+
+</div>

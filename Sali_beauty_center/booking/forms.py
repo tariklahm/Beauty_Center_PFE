@@ -3,8 +3,20 @@ from .models import Appointment, Service
 from users.models import Employee
 
 
+# class AppointmentForm(forms.ModelForm):
+#     # multiple services field
+#     services = forms.ModelMultipleChoiceField(
+#         queryset=Service.objects.all(),
+#         widget=forms.CheckboxSelectMultiple,
+#         required=True
+#     )
+
+#     class Meta:
+#         model = Appointment
+#         fields = ['employee', 'date']
+
 class AppointmentForm(forms.ModelForm):
-    # multiple services field
+
     services = forms.ModelMultipleChoiceField(
         queryset=Service.objects.all(),
         widget=forms.CheckboxSelectMultiple,
@@ -13,4 +25,11 @@ class AppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
-        fields = ['employee', 'date']
+        fields = ['date']
+        widgets = {
+            # 'type': 'date' triggers the browser's built-in calendar popup
+            # 'date': forms.DateInput(attrs={'type': 'date'})
+            
+            # Use 'datetime-local' if your model uses DateTimeField:
+            'date': forms.DateTimeInput(attrs={'type': 'datetime-local'})
+        }

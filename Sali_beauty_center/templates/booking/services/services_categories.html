@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- SERVICES SECTION -->
+{% include 'partials/breadcrumbs.html' with show_services=True page_title="Categories" %}
+
+<section class="services-section py-5 text-center">
+    <h2 class="section-title mb-5">Our Services</h2>
+
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Hair Styling -->
+            <div class="col-md-4">
+            <a href="{% url 'booking:category_detail' 'hair' %}" class="text-decoration-none">
+                <div class="service-card hair-card">
+                    <div class="overlay">
+                        <h4>Hair Styling</h4>
+                        <p>Blow dry, coloring, haircut & styling</p>
+                    </div>
+                </div>
+            </a>
+            </div>
+
+            <!-- Facial Care -->
+            <div class="col-md-4">
+                <a href="{% url 'booking:category_detail' 'face' %}" class="text-decoration-none">
+                <div class="service-card face-card">
+                    <div class="overlay">
+                        <h4>Facial Care</h4>
+                        <p>Luxury skincare & glowing treatments</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <!-- Nail Care -->
+            <div class="col-md-4">
+                <a href="{% url 'booking:category_detail' 'nails' %}" class="text-decoration-none">
+                <div class="service-card nail-card">
+                    <div class="overlay">
+                        <h4>Nail Care</h4>
+                        <p>Manicure, pedicure & gel nails</p>
+                    </div>
+                </div>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

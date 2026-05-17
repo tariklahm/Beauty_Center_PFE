@@ -1,0 +1,92 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'partials/breadcrumbs.html' with mode="service_flow" show_services=True category=category service=service employee=employee %}
+
+<section class="employees-section py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <!-- Employee image -->
+            <div class="col-md-5">
+
+                <div class="employee-card">
+
+                    {% if employee.image %}
+                        <img src="{{ employee.image.url }}"
+                             alt="{{ employee.user.username }}">
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- Employee information -->
+            <div class="col-md-7">
+
+                <div class="about-content">
+
+                    <h1 class="section-title">
+                        {{ employee.user.username }}
+                    </h1>
+
+                    <p class="section-subtitle">
+                        Professional Beauty Expert
+                    </p>
+
+                    <hr>
+
+                    <p>
+                        {{ employee.bio }}
+                    </p>
+
+                    <p>
+                        <strong>Experience:</strong>
+                        {{ employee.experience_years }} years
+                    </p>
+
+                    <p>
+                        <strong>Availability:</strong>
+                        {{ employee.availability }}
+                    </p>
+
+                    <p>
+                        <strong>Diplomas:</strong>
+                        {{ employee.diplomas }}
+                    </p>
+
+                    <h5 class="mt-4">
+                        Services:
+                    </h5>
+
+                    {% for service in employee.services.all %}
+                        <span class="btn-register me-2 mt-2">
+                            {{ service.name }}
+                        </span>
+                    {% endfor %}
+
+                    <div class="mt-4">
+
+                        <a href="{% url 'booking:create_appointment' employee.id %}"
+                           class="btn-hero">
+                           Book Appointment
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
